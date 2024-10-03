@@ -45,25 +45,16 @@
                     <td>Xe</td>
                     <td>Giá thuê</td>
                     <td>Ngày thuê</td>
-                    <td>Tổng thu</td>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td><a href="#"><img class="btn-delete" src="img/xoa.png" alt=""></a></td>
-                    <td><img src="img/vf501.png" alt=""></td>
-                    <td>VF5</td>
-                    <td>800.000VNĐ</td>
-                    <td><input type="number" value="1"></td>
-                    <td>800.000VNĐ</td>
-                </tr>
-                <tr>
-                    <td><a href="#"><img class="btn-delete" src="img/xoa.png" alt=""></a></td>
                     <td><img src="img/vf601.png" alt=""></td>
                     <td>VF6</td>
-                    <td>800.000VNĐ</td>
-                    <td><input type="number" value="1"></td>
-                    <td>800.000VNĐ</td>
+                    <td id="price">800000</td>
+                    <td><input type="number" value="1" min="1" onchange="updateTotal(this)"></td>
+                    <!-- <td id="total">800000VNĐ</td> -->
                 </tr>
             </tbody>
         </table>
@@ -71,30 +62,71 @@
 
     <!-- Cart Add -->
     <section id="cart-add" class="section-p1">
-        <div id="coupon">
+        <div class="payment-container">
+            <h2>Thông Tin Thanh Toán</h2>
+            <form>
+                <label for="name">Họ và tên:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Số điện thoại:</label>
+                <input type="text" id="phone" name="phone" required>
+
+                <label for="address">Địa chỉ:</label>
+                <input type="text" id="address" name="address" required>
+
+                <label>Phương thức thanh toán:</label>
+                <label>
+                    <input type="radio" name="payment-method" value="cash" checked onclick="toggleAccountInput()">
+                    Tiền mặt
+                </label>
+                <label>
+                    <input type="radio" name="payment-method" value="bank-card" onclick="toggleAccountInput()">
+                    Thẻ ngân hàng
+                </label>
+
+                <div id="account-input" style="display:none;">
+                    <label for="account-number">Số tài khoản:</label>
+                    <input type="text" id="account-number" name="account-number" required>
+                </div>
+
+                <button type="submit">Tiến hành thanh toán</button>
+            </form>
+        </div>
+
+        <script>
+            function toggleAccountInput() {
+                const accountInput = document.getElementById('account-input');
+                const isBankCard = document.querySelector('input[name="payment-method"]:checked').value === 'bank-card';
+                accountInput.style.display = isBankCard ? 'block' : 'none';
+            }
+        </script>
+        <!-- <div id="coupon">
             <h3>Áp dụng phiếu giảm giá</h3>
             <div>
                 <input type="text" placeholder="Nhập mã giảm giá">
                 <button class="normal">Áp dụng mã</button>
             </div>
-        </div>
+        </div> -->
         <div id="subtotal">
-            <h3>Tổng thanh toán</h3>
+            <img src="img/banner-05.jpg" alt="">
+            <h3>Tổng Thanh Toán</h3>
             <table>
                 <tr>
                     <td>Tổng thu</td>
-                    <td>800.000 VNĐ</td>
+                    <td id="total-revenue">800000 VNĐ</td>
                 </tr>
                 <tr>
                     <td>Giảm giá</td>
-                    <td>20%</td>
+                    <td id="discount">20%</td>
                 </tr>
                 <tr>
                     <td>Tổng thanh toán</td>
-                    <td>640.000 VNĐ</td>
+                    <td id="total-payment">640000 VNĐ</td>
                 </tr>
             </table>
-            <button class="normal">Tiến hành thanh toán </button>
         </div>
     </section>
 
@@ -136,6 +168,27 @@
         </div>
     </section>
 
+    <!-- <script>
+        function updateTotal(input) {
+            const price = parseInt(document.getElementById('price').innerText);
+            const quantity = parseInt(input.value);
+            const total = price * quantity;
+            document.getElementById('total').innerText = total.toLocaleString('vi-VN') + ' VNĐ';
+        }
+    </script> -->
+    <script>
+        function updateTotal(input) {
+            const price = parseInt(document.getElementById('price').innerText);
+            const quantity = parseInt(input.value);
+            const totalRevenue = price * quantity;
+            const discountPercentage = 20; // 20%
+            const discountAmount = (totalRevenue * discountPercentage) / 100;
+            const totalPayment = totalRevenue - discountAmount;
+
+            document.getElementById('total-revenue').innerText = totalRevenue.toLocaleString('vi-VN') + ' VNĐ';
+            document.getElementById('total-payment').innerText = totalPayment.toLocaleString('vi-VN') + ' VNĐ';
+        }
+    </script>
     <script>
         const deleteButtons = document.querySelectorAll(".btn-delete");
         deleteButtons.forEach(button => {
