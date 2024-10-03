@@ -77,6 +77,24 @@ body {
     height: 80px;
 }
 
+#header .btnLogin-popup {
+    width: 100px;
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid #088178;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-bottom: 7px;
+}
+
+#header .btnLogin-popup:hover {
+    background-color: #088178;
+    color: #fff;
+}
+
 #navbar {
     display: flex;
     align-items: center;
@@ -161,6 +179,160 @@ body {
 #hero button:active {
     background-color: #116881; 
     box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* WRAPPER */
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background-color: transparent;
+    border: 2px solid #088178;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: height .2s ease;
+    overflow: hidden;
+    margin-left: 350px;
+}
+
+.wrapper.active {
+    height: 520px;
+}
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .form-box.login {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper.active .form-box.login {
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.wrapper .form-box.register {
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+
+.wrapper.active .form-box.register {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.form-box h2 {
+    font-size: 40px;
+    color: #088178;
+    text-align: center;
+}
+
+.wrapper .icon-close {
+    position: absolute;
+    top: 5px;
+    right: -8px;
+    width: 45px;
+    height: 45px;
+    font-size: 30px;
+}
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #088178;
+    margin: 30px 0;
+}
+
+.input-box label {
+    position: absolute;
+    top: 10%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #088178;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #162938;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 20px;
+    color: #162938;
+    line-height: 57px;
+}
+
+.remember-forgot {
+    font-size: 18px;
+    color: #088178;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input {
+    accent-color: #088178;
+    margin-right: 3px;
+
+}
+.remember-forgot a {
+    color: #060556;
+    font-size: 16px;
+}
+
+.btn {
+    width: 100%;
+    height: 45px;  
+    background-color: #088178;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.login-register {
+    font-size: 18px;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+.login-register p a {
+    color: #060556;
+    padding-left: 20px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register p a:hover {
+    text-decoration: underline;
 }
 
 /* Feature Tính năng */
@@ -795,4 +967,221 @@ i {
     border: 1px solid #e2e9e1;
     padding: 10px;
     font-size: 13px;
+}
+
+/*--------------BLOG PAGE------------------*/
+#page-header {
+    background-image: url("img/blog01.1.jpg");
+    background-position: 0 -25px;
+}
+
+#blog {
+    padding: 150px 150px 0 150px;
+}
+
+#blog .blog-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding-bottom: 90px;
+}
+
+#blog .blog-box h1 {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    font-size: 70px;
+    font-weight: 700;
+    color: #c9c9c9;
+    z-index: -9;
+}
+
+#blog .blog-img {
+    width: 50%;
+    margin-right: 40px;
+}
+
+#blog img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+#blog .blog-details {
+    width: 50%;
+}
+
+#blog .blog-details p{
+    font-size: 15px;
+}
+
+#blog .blog-details a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #000;
+    font-weight: 700;
+    position: relative;
+    transition: 0.3s;
+}
+
+#blog .blog-details a::after {
+    content: "";
+    width: 50px;
+    height: 1px;
+    background-color: #000;
+    position: absolute;
+    top: 5px;
+    right: -60px;
+}
+
+#blog .blog-details a:hover {
+    color: #088178;
+}
+
+#blog .blog-details a:hover::after {
+    background-color: #088178;
+}
+
+
+/*--------------ABOUT PAGE------------------*/
+#page-header.about-header {
+    background-image: url("img/banner05.png");
+    background-position: -50px 0;
+}
+
+#about-head {
+    display: flex;
+    align-items: center;
+}
+
+#about-head img {
+    width: 60%;
+    height: auto;
+}
+
+#about-head div {
+    padding-left: 40px;
+}
+
+#about-head abbr {
+    font-size: 18px;
+}
+
+/*--------------CONTACT PAGE------------------*/
+#contact-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#contact-details .details {
+    width: 40%;
+}
+
+#contact-details .details span,
+#form-details form span {
+    font-size: 18px;
+}
+
+#contact-details .details h2,
+#form-details form h2 {
+    font-size: 26px;
+    line-height: 35px;
+    padding: 20px 0;
+}
+
+#contact-details .details h3 {
+    font-size: 18px;
+    padding-bottom: 15px;
+}
+
+#contact-details .details li {
+    list-style: none;
+    display: flex;
+    padding: 10px 0;
+}
+
+#contact-details .details li i {
+    font-size: 20px;
+    padding-right: 20px;
+}
+
+#contact-details .details li p {
+    margin: 0;
+    font-size: 18px;
+}
+
+#contact-details .map {
+    width: 55%;
+    height: 400px;
+}
+
+#contact-details .map iframe {
+    width: 100%;
+    height: 90%;
+}
+
+#form-details {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+    padding: 30px;
+    border: 1px solid #1e1e1e;
+}
+#form-details form {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#form-details form input,
+#form-details form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    outline: none;
+    margin-bottom: 20px;
+    border: 1px solid #e1e1e1;
+    font-size: 18px;
+}
+
+#form-details form button {
+    background-color: #088178;
+    color: #fff;
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+}
+
+#form-details form button:hover {
+    background-color: #064349;
+}
+
+#form-details .people div {
+    margin-top: 70px;
+    padding-bottom: 25px;
+    display: flex;
+    align-items: flex-start;
+    margin-right: 20px;
+}
+
+#form-details .people div img {
+    width: 95px;
+    height: 95px;
+    object-fit: cover;
+    margin-right: 35px;
+    border-radius: 50%;
+}
+
+#form-details .people div p {
+    font-size: 18px;
+}
+
+#form-details .people div p span {
+    display: block;
+    font-size: 25px;
+    font-weight: 600;
+    color: #000;
 }

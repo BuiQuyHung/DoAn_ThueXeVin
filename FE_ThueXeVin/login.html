@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <title>ThueXeVin</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <section id="header">
+        <a href="#"><img src="img/logovinfast.png" class="logo" /></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="shop.html">Đặt xe</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag">
+                    <a href="cart.html"><i class="fa-solid fa-car"></i></a>
+                </li>
+                <a class="active" href="login.html"><button class="btnLogin-popup">Login</button></a>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Form Login -->
+    <div class="wrapper">
+        <!-- <span class="icon-close"><i class="fa-solid fa-rectangle-xmark"></i>
+        </span> -->
+        <div class="form-box login">
+            <h2>Đăng nhập</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-user"></i></span>
+                    <input type="email" required>
+                    <label>Tài khoản</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                    <input type="password" required>
+                    <label>Mật khẩu</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Ghi nhớ tài khoản</label>
+                    <a href="#">Quên mật khẩu</a>
+                </div>
+                <button type="submit" class="btn">Đăng nhập</button>
+                <div class="login-register">
+                    <p style="font-size: 15px;">Đừng quên mật khẩu?<a href="#" class="register-link">Đăng kí</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="form-box register">
+            <h2>Đăng kí</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-user"></i></span>
+                    <input type="email" required>
+                    <label>Tài khoản</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                    <input type="password" required>
+                    <label>Mật khẩu</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                    <input type="password" required>
+                    <label>Nhập lại mật khẩu</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Tôi đồng ý với các điều khoản</label>
+                </div>
+                <button type="submit" class="btn">Đăng kí</button>
+                <div class="login-register">
+                    <p style="font-size: 15px;">Đã có tài khoản<a href="#" class="login-link">Đăng nhập</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- New Letter -->
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Đăng Kí Nhận Bản Tin</h4>
+            <p>Nhận thông tin cập nhật qua Email về dịch vụ của chúng tôi và <span>các ưu đãi đặc biệt</span></p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Nhập email của bạn">
+            <button class="normal">Đăng Kí</button>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section id="footer">
+        <div class="container-footer">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="img/footer.png" alt="Logo Vinfast" />
+                    <p>CÔNG TY CỔ PHẦN BQH</p>
+                    <p>Địa chỉ: Gia Tân, Gia Lộc, Hải Dương, Việt Nam.</p>
+                    <p>© 2024 BQH corp. All rights reserved.</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Đặt xe</h3>
+                    <ul>
+                        <li><a href="#">Ngắn hạn</a></li>
+                        <li><a href="#">Dài hạn</a></li>
+                        <li><a href="#">Doanh nghiệp</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h3>Giới thiệu</h3>
+                    <ul>
+                        <li><a href="#">Về chúng tôi</a></li>
+                        <li><a href="#">Dịch vụ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h3>Liên hệ</h3>
+                    <ul>
+                        <li>Tổng đài: 1900 ****</li>
+                        <li>Hotline: 09** *** ***</li>
+                        <li>Email: contact@bqh.vn</li>
+                    </ul>
+                    <p><a href="#">Điều khoản sử dụng</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
