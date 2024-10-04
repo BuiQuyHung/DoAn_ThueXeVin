@@ -181,11 +181,11 @@ body {
     box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* WRAPPER */
+/*----------------------LOGIN-------------------------*/
 .wrapper {
     position: relative;
-    width: 400px;
-    height: 440px;
+    width: 370px;
+    height: 400px;
     background-color: transparent;
     border: 2px solid #088178;
     border-radius: 20px;
@@ -196,7 +196,7 @@ body {
     align-items: center;
     transition: height .2s ease;
     overflow: hidden;
-    margin-left: 350px;
+    margin-left: 400px;
 }
 
 .wrapper.active {
@@ -229,7 +229,7 @@ body {
 }
 
 .form-box h2 {
-    font-size: 40px;
+    font-size: 30px;
     color: #088178;
     text-align: center;
 }
@@ -255,7 +255,7 @@ body {
     top: 10%;
     left: 5px;
     transform: translateY(-50%);
-    font-size: 20px;
+    font-size: 18px;
     color: #088178;
     font-weight: 500;
     pointer-events: none;
@@ -282,7 +282,7 @@ body {
 .input-box .icon {
     position: absolute;
     right: 8px;
-    font-size: 20px;
+    font-size: 18px;
     color: #162938;
     line-height: 57px;
 }
@@ -643,7 +643,7 @@ body {
 }
 
 .col-md-3 p{
-    font-size: 20px;
+    font-size: 18px;
     color: #ffffff;
 }
 
@@ -664,7 +664,7 @@ ul li {
 a {
     color: #fff;
     text-decoration: none; 
-    font-size: 20px;
+    font-size: 15px;
 }
 
 a:hover {
@@ -859,7 +859,7 @@ i {
 }
 
 #cart table img {
-    width: 100px;
+    width: 90px;
 }
 
 #cart table td:nth-child(1) {
@@ -1016,7 +1016,7 @@ i {
     width: 50%;
     border: 1px solid #e2e9e1;
     padding: 10px;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 #subtotal img {
@@ -1123,6 +1123,11 @@ i {
 }
 
 /*--------------CONTACT PAGE------------------*/
+#page-header.about-header {
+    background-image: url("img/banner05.png");
+    background-position: -50px 0;
+}
+
 #contact-details {
     display: flex;
     align-items: center;
