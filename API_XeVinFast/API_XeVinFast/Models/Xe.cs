@@ -10,5 +10,6 @@ namespace API_XeVinFast.Models
         public int MaChiTietXe { get; set; }
         public string TrangThaiXe { get; set; }
         public int MaBaoHiem { get; set; }
+        public string DuongDanAnh { get; set; }
     }
 }

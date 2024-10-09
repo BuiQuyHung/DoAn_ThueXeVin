@@ -7,18 +7,33 @@ using API_XeVinFast.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add CORS policy
+var AllowAllOrigins = "_myAllowAllOrigins";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: AllowAllOrigins,
+        proxy =>
+        {
+              proxy.AllowAnyOrigin()   
+                   .AllowAnyMethod()   
+                   .AllowAnyHeader();  
+        });
+});
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerGen();
+
 builder.Services.AddSwaggerGen(o =>
 {
     o.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
 });
+
 builder.Services.AddControllers();
 builder.Services.AddScoped<IXeRepository, XeRepository>();
 builder.Services.AddScoped<IKhachHangRepository, KhachHangRepository>();
@@ -39,6 +54,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(AllowAllOrigins);
 
 app.UseHttpsRedirection();
 

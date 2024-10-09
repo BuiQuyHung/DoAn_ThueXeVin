@@ -1,4 +1,4 @@
-﻿-- ================================================
+-- ================================================
 -- Template generated from Template Explorer using:
 -- Create Procedure (New Menu).SQL
 --
@@ -18,11 +18,10 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE GetAllXe
+ALTER PROCEDURE Top3XeThueNhieu
 AS
 BEGIN
-    -- Truy vấn để lấy tất cả xe kèm theo thông tin chi tiết xe và ảnh xe
-    SELECT 
+    SELECT TOP 3 
         Xe.MaXe,
         Xe.BienSo,
         Xe.TrangThaiXe,
@@ -33,13 +32,31 @@ BEGIN
         ChiTietXe.PhamViHoatDong,
         ChiTietXe.SoChoNgoi,
         ChiTietXe.MauSac,
-        AnhXe.DuongDanAnh  -- Đường dẫn đến ảnh xe
+        AnhXe.DuongDanAnh,  
+        COUNT(HopDongThue.MaHopDong) AS SoLuotThue  
     FROM 
         Xe
+    INNER JOIN 
+        HopDongThue ON Xe.MaXe = HopDongThue.MaXe  
     LEFT JOIN 
-        ChiTietXe ON Xe.MaChiTietXe = ChiTietXe.MaChiTietXe  -- Liên kết với bảng ChiTietXe để lấy thông tin chi tiết xe
+        ChiTietXe ON Xe.MaChiTietXe = ChiTietXe.MaChiTietXe  
     LEFT JOIN 
-        AnhXe ON Xe.MaXe = AnhXe.MaXe  -- Liên kết với bảng AnhXe để lấy thông tin ảnh xe
+        AnhXe ON Xe.MaXe = AnhXe.MaXe  
+    GROUP BY 
+        Xe.MaXe, 
+        Xe.BienSo, 
+        Xe.TrangThaiXe,
+        Xe.MaBaoHiem,
+        ChiTietXe.Model,
+        ChiTietXe.DongCo,
+        ChiTietXe.CongSuat,
+        ChiTietXe.PhamViHoatDong,
+        ChiTietXe.SoChoNgoi,
+        ChiTietXe.MauSac,
+        AnhXe.DuongDanAnh  
+    ORDER BY 
+        SoLuotThue DESC; 
 END;
 
-EXEC GetAllXe;
+
+EXEC Top3XeThueNhieu;

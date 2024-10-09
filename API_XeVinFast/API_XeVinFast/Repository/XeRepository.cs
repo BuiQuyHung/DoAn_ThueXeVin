@@ -23,7 +23,7 @@ namespace API_XeVinFast.Repository
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                var query = "GetAllXe"; // Store procedure để lấy tất cả xe
+                var query = "GetAllXe_ChiTiet"; 
                 var result = await connection.QueryAsync<XeDto>(query, commandType: System.Data.CommandType.StoredProcedure);
                 return result;
             }
@@ -50,7 +50,8 @@ namespace API_XeVinFast.Repository
                     BienSo = xeDto.BienSo,
                     MaChiTietXe = xeDto.MaChiTietXe,
                     TrangThaiXe = xeDto.TrangThaiXe,
-                    MaBaoHiem = xeDto.MaBaoHiem 
+                    MaBaoHiem = xeDto.MaBaoHiem,
+                    DuongDanAnh = xeDto.DuongDanAnh
                 };
                 var result = await connection.ExecuteAsync(query, parameters, commandType: System.Data.CommandType.StoredProcedure);
                 return result > 0;
@@ -70,7 +71,8 @@ namespace API_XeVinFast.Repository
                     BienSo = xeDto.BienSo,
                     MaChiTietXe = xeDto.MaChiTietXe,
                     TrangThaiXe = xeDto.TrangThaiXe,
-                    MaBaoHiem = xeDto.MaBaoHiem
+                    MaBaoHiem = xeDto.MaBaoHiem,
+                    DuongDanAnh = xeDto.DuongDanAnh
                 };
                 var result = await connection.ExecuteAsync(query, parameters, commandType: System.Data.CommandType.StoredProcedure);
                 return result > 0;
@@ -88,7 +90,7 @@ namespace API_XeVinFast.Repository
             }
         }
 
-        public async Task<IEnumerable<XeDto>> TimKiemXeAsync(string bienSo, int? maChiTietXe, string trangThaiXe, int? maBaoHiem)
+        public async Task<IEnumerable<XeDto>> TimKiemXeAsync(string bienSo, int? maChiTietXe, string trangThaiXe, int? maBaoHiem, string duongDanAnh)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -98,7 +100,8 @@ namespace API_XeVinFast.Repository
                     BienSo = bienSo,
                     MaChiTietXe = maChiTietXe,
                     TrangThaiXe = trangThaiXe,
-                    MaBaoHiem = maBaoHiem
+                    MaBaoHiem = maBaoHiem,
+                    DuongDanAnh = duongDanAnh
                 };
 
                 var result = await connection.QueryAsync<XeDto>(query, parameters, commandType: System.Data.CommandType.StoredProcedure);

@@ -9,6 +9,7 @@
         public string Model { get; set; } 
         public string DongCo { get; set; } 
         public string TrangThaiXe { get; set; }
-        public string MauSac { get; set; } 
+        public string MauSac { get; set; }
+        public string DuongDanAnh { get; set; }
     }
 }
