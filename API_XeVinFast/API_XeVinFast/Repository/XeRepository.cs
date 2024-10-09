@@ -51,7 +51,8 @@ namespace API_XeVinFast.Repository
                     MaChiTietXe = xeDto.MaChiTietXe,
                     TrangThaiXe = xeDto.TrangThaiXe,
                     MaBaoHiem = xeDto.MaBaoHiem,
-                    DuongDanAnh = xeDto.DuongDanAnh
+                    DuongDanAnh = xeDto.DuongDanAnh,
+                    GiaThueXe = xeDto.GiaThueXe
                 };
                 var result = await connection.ExecuteAsync(query, parameters, commandType: System.Data.CommandType.StoredProcedure);
                 return result > 0;
@@ -72,7 +73,8 @@ namespace API_XeVinFast.Repository
                     MaChiTietXe = xeDto.MaChiTietXe,
                     TrangThaiXe = xeDto.TrangThaiXe,
                     MaBaoHiem = xeDto.MaBaoHiem,
-                    DuongDanAnh = xeDto.DuongDanAnh
+                    DuongDanAnh = xeDto.DuongDanAnh,
+                    GiaThueXe = xeDto.GiaThueXe
                 };
                 var result = await connection.ExecuteAsync(query, parameters, commandType: System.Data.CommandType.StoredProcedure);
                 return result > 0;
@@ -90,7 +92,7 @@ namespace API_XeVinFast.Repository
             }
         }
 
-        public async Task<IEnumerable<XeDto>> TimKiemXeAsync(string bienSo, int? maChiTietXe, string trangThaiXe, int? maBaoHiem, string duongDanAnh)
+        public async Task<IEnumerable<XeDto>> TimKiemXeAsync(string bienSo, int? maChiTietXe, string trangThaiXe, int? maBaoHiem, string duongDanAnh, int? giaThueXe)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -101,7 +103,8 @@ namespace API_XeVinFast.Repository
                     MaChiTietXe = maChiTietXe,
                     TrangThaiXe = trangThaiXe,
                     MaBaoHiem = maBaoHiem,
-                    DuongDanAnh = duongDanAnh
+                    DuongDanAnh = duongDanAnh,
+                    GiaThueXe = giaThueXe
                 };
 
                 var result = await connection.QueryAsync<XeDto>(query, parameters, commandType: System.Data.CommandType.StoredProcedure);

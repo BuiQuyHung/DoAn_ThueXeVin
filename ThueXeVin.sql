@@ -27,6 +27,7 @@ CREATE TABLE ChiTietXe (
     MaChiTietXe INT PRIMARY KEY IDENTITY(1,1),
     Model NVARCHAR(50) NOT NULL,
     DongCo NVARCHAR(50) NOT NULL,
+	GiaThueXe DECIMAL(18, 2) NOT NULL,
     CongSuat INT,
     PhamViHoatDong INT,
     SoChoNgoi INT,
@@ -178,16 +179,16 @@ VALUES
 
 INSERT INTO Xe (BienSo, MaChiTietXe, TrangThaiXe, MaBaoHiem)
 VALUES 
-(N'29A-12345', 1, N'Sẵn sàng', 1),
-(N'30B-54321', 2, N'Sẵn sàng', 2),
-(N'31C-67890', 3, N'Đang thuê', 3),
-(N'32D-98765', 4, N'Bảo dưỡng', 4),
-(N'33E-45678', 5, N'Sẵn sàng', 5),
-(N'34F-87654', 6, N'Đang thuê', 6),
-(N'35G-11223', 7, N'Sẵn sàng', 7),
-(N'36H-44556', 8, N'Sẵn sàng', 8),
-(N'37I-77889', 9, N'Bảo dưỡng', 9),
-(N'38J-99001', 10, N'Sẵn sàng', 10);
+(N'34A-12345', 1, N'Sẵn sàng', 1),
+(N'34B-54368', 2, N'Sẵn sàng', 2),
+(N'34C-67899', 3, N'Đang thuê', 3),
+(N'34D-98656', 4, N'Bảo dưỡng', 4),
+(N'34E-45688', 5, N'Sẵn sàng', 5),
+(N'34F-87877', 6, N'Đang thuê', 6),
+(N'34G-11235', 7, N'Sẵn sàng', 7),
+(N'34H-44444', 8, N'Sẵn sàng', 8),
+(N'34I-77888', 9, N'Bảo dưỡng', 9),
+(N'34J-99000', 10, N'Sẵn sàng', 10);
 
 INSERT INTO BaoHiem (LoaiBaoHiem, NhaCungCap, ThoiHan)
 VALUES

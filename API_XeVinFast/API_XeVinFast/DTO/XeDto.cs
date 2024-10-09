@@ -10,6 +10,9 @@
         public string DongCo { get; set; } 
         public string TrangThaiXe { get; set; }
         public string MauSac { get; set; }
+        public decimal GiaThueXe { get; set; }
         public string DuongDanAnh { get; set; }
+        public int CongSuat { get; set; }
+        public int PhamViHoatDong { get; set; }
     }
 }

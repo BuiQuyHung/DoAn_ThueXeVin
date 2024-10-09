@@ -62,9 +62,9 @@ namespace API_XeVinFast.Controllers
         }
 
         [HttpGet("TimKiemXe")]
-        public async Task<ActionResult<IEnumerable<XeDto>>> TimKiemXe(string bienSo = null, int? maChiTietXe = null, string trangThaiXe = null, int? maBaoHiem = null, string duongDanAnh = null)
+        public async Task<ActionResult<IEnumerable<XeDto>>> TimKiemXe(string bienSo = null, int? maChiTietXe = null, string trangThaiXe = null, int? maBaoHiem = null, string duongDanAnh = null, int? giaThueXe = null)
         {
-            var xeList = await _xeRepository.TimKiemXeAsync(bienSo, maChiTietXe, trangThaiXe, maBaoHiem, duongDanAnh);
+            var xeList = await _xeRepository.TimKiemXeAsync(bienSo, maChiTietXe, trangThaiXe, maBaoHiem, duongDanAnh, giaThueXe);
             return Ok(xeList);
         }
 

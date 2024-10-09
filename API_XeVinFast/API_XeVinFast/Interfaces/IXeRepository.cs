@@ -11,7 +11,7 @@ namespace API_XeVinFast.Interfaces
         Task<bool> CreateXeAsync(XeDto xeDto);
         Task<bool> UpdateXeAsync(XeDto xeDto);
         Task<bool> DeleteXeAsync(int maXe);
-        Task<IEnumerable<XeDto>> TimKiemXeAsync(string bienSo, int? maChiTietXe, string trangThaiXe, int? maBaoHiem, string duongDanAnh);
+        Task<IEnumerable<XeDto>> TimKiemXeAsync(string bienSo, int? maChiTietXe, string trangThaiXe, int? maBaoHiem, string duongDanAnh, int? giaThueXe);
     }
 
 }
