@@ -8,10 +8,10 @@ namespace API_XeVinFast.Interfaces
     {
         Task<IEnumerable<XeDto>> GetAllXeAsync();
         Task<XeDto> GetXeByIdAsync(int maXe);
-        Task<bool> CreateXeAsync(XeDto xeDto);
-        Task<bool> UpdateXeAsync(XeDto xeDto);
+        Task<bool> CreateXeAsync(XeDtoThemSua xeDto);
+        Task<bool> UpdateXeAsync(XeDtoThemSua xeDto);
         Task<bool> DeleteXeAsync(int maXe);
-        Task<IEnumerable<XeDto>> TimKiemXeAsync(string bienSo, int? maChiTietXe, string trangThaiXe, int? maBaoHiem, string duongDanAnh, int? giaThueXe);
+        Task<IEnumerable<XeDto>> TimKiemXeAsync(string bienSo, int? maChiTietXe, string trangThaiXe, int? maBaoHiem, int? giaThueXe);
     }
 
 }

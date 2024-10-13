@@ -34,7 +34,7 @@ namespace API_XeVinFast.Controllers
         }
 
         [HttpPost("CreateXe")]
-        public async Task<ActionResult> CreateXe(XeDto xeDto)
+        public async Task<ActionResult> CreateXe(XeDtoThemSua xeDto)
         {
             var created = await _xeRepository.CreateXeAsync(xeDto);
             if (!created)
@@ -44,7 +44,7 @@ namespace API_XeVinFast.Controllers
 
 
         [HttpPut("UpdateXe")]
-        public async Task<ActionResult> UpdateXe(XeDto xeDto)
+        public async Task<ActionResult> UpdateXe(XeDtoThemSua xeDto)
         {
             var updated = await _xeRepository.UpdateXeAsync(xeDto);
             if (!updated)
@@ -62,9 +62,9 @@ namespace API_XeVinFast.Controllers
         }
 
         [HttpGet("TimKiemXe")]
-        public async Task<ActionResult<IEnumerable<XeDto>>> TimKiemXe(string bienSo = null, int? maChiTietXe = null, string trangThaiXe = null, int? maBaoHiem = null, string duongDanAnh = null, int? giaThueXe = null)
+        public async Task<ActionResult<IEnumerable<XeDto>>> TimKiemXe(string bienSo = null, int? maChiTietXe = null, string trangThaiXe = null, int? maBaoHiem = null, int? giaThueXe = null)
         {
-            var xeList = await _xeRepository.TimKiemXeAsync(bienSo, maChiTietXe, trangThaiXe, maBaoHiem, duongDanAnh, giaThueXe);
+            var xeList = await _xeRepository.TimKiemXeAsync(bienSo, maChiTietXe, trangThaiXe, maBaoHiem, giaThueXe);
             return Ok(xeList);
         }
 

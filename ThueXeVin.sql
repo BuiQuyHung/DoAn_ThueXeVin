@@ -41,6 +41,7 @@ CREATE TABLE Xe (
     MaChiTietXe INT,
     TrangThaiXe NVARCHAR(50) NOT NULL,
     MaBaoHiem INT,
+	DuongDanAnh NVARCHAR(50)
     FOREIGN KEY (MaChiTietXe) REFERENCES ChiTietXe(MaChiTietXe),
     FOREIGN KEY (MaBaoHiem) REFERENCES BaoHiem(MaBaoHiem)
 );
@@ -60,6 +61,28 @@ CREATE TABLE BaoHiem (
     LoaiBaoHiem NVARCHAR(50) NOT NULL,
     NhaCungCap NVARCHAR(100),
     ThoiHan DATE NOT NULL
+);
+
+-- Bảng Đơn Hàng
+CREATE TABLE DonHang (
+    MaDonHang INT PRIMARY KEY IDENTITY(1,1),  
+    MaKhachHang INT NOT NULL,  
+    HoTen NVARCHAR(100) NOT NULL,  
+    Email NVARCHAR(100) NOT NULL,  
+    SoDienThoai NVARCHAR(20) NOT NULL,  
+    DiaChi NVARCHAR(255),  
+    PhuongThucThanhToan NVARCHAR(50) NOT NULL,  
+    MaXe INT NOT NULL, 
+    BienSo NVARCHAR(20) NOT NULL,  
+    GiaThue DECIMAL(18,2) NOT NULL,  
+    NgayThue DATE NOT NULL,  
+    NgayTra DATE NOT NULL, 
+    TongTien DECIMAL(18,2) NOT NULL,  
+    MaHopDong INT NULL, 
+    TrangThaiDonHang NVARCHAR(50) DEFAULT N'Đang chờ duyệt', 
+    CONSTRAINT FK_DonHang_KhachHang FOREIGN KEY (MaKhachHang) REFERENCES KhachHang(MaKhachHang), 
+    CONSTRAINT FK_DonHang_Xe FOREIGN KEY (MaXe) REFERENCES Xe(MaXe), 
+    CONSTRAINT FK_DonHang_HopDongThue FOREIGN KEY (MaHopDong) REFERENCES HopDongThue(MaHopDong)  
 );
 
 -- Bảng Hợp đồng thuê
@@ -309,3 +332,16 @@ INSERT INTO XuLySuCo (MaXe, NgaySuCo, MoTa, TinhTrang, MaNhanVien, GhiChu) VALUE
 (8, '2024-09-25', N'Thủng lốp', N'Đã xử lý', 14, N'Đã thay lốp mới.'),
 (9, '2024-09-27', N'Va quẹt vào cột', N'Chưa xử lý', 11, N'Chờ đánh giá thiệt hại.'),
 (10, '2024-09-29', N'Thay dầu động cơ', N'Đã xử lý', 13, N'Hoàn tất thay dầu.');
+
+INSERT INTO DonHang (MaKhachHang, HoTen, Email, SoDienThoai, DiaChi, PhuongThucThanhToan, MaXe, BienSo, GiaThue, NgayThue, NgayTra, TongTien, MaHopDong)
+VALUES
+(1, N'Nguyễn Văn A', N'vana@gmail.com', N'0123456789', N'Hải Dương', N'Thẻ', 1, N'30A-456.78', 500000, '2024-10-01', '2024-10-05', 2000000, NULL),
+(2, N'Trần Thị B', N'thib@gmail.com', N'0123456790', N'Hà Nội, Quận 2', N'Tiền mặt', 2, N'34B-54321', 700000, '2024-10-02', '2024-10-06', 2800000, NULL),
+(3, N'Phạm Văn C', N'vanc@gmail.com', N'0123456791', N'Hưng Yên', N'Thẻ', 3, N'34C-67890', 600000, '2024-10-03', '2024-10-07', 2400000, NULL),
+(4, N'Lê Thị D', N'd@gmail.com', N'0123456792', N'Hải Dương', N'Tiền mặt', 4, N'34D-98765', 800000, '2024-10-04', '2024-10-08', 3200000, NULL),
+(5, N'Nguyễn Văn E', N've@gmail.com', N'0123456793', N'Hà Nội', N'Thẻ', 5, N'34E-45678', 500000, '2024-10-05', '2024-10-09', 2200000, NULL),
+(6, N'Trần Thị F', N'f@gmail.com', N'0123456794', N'Hưng Yên', N'Tiền mặt', 6, N'34F-87654', 700000, '2024-10-06', '2024-10-10', 3000000, NULL),
+(7, N'Phạm Văn G', N'g@gmail.com', N'0123456795', N'Hải Phòng', N'Thẻ', 7, N'34G-11223', 900000, '2024-10-07', '2024-10-11', 3600000, NULL),
+(8, N'Lê Thị H', N'h@gmail.com', N'0123456796', N'Bắc Ninh', N'Tiền mặt', 8, N'34H-44556', 600000, '2024-10-08', '2024-10-12', 2600000, NULL),
+(9, N'Nguyễn Văn I', N'i@gmail.com', N'0123456797', N'Hải Dương', N'Thẻ', 9, N'34I-77889', 700000, '2024-10-09', '2024-10-13', 2800000, NULL),
+(10, N'Trần Thị J', N'j@gmail.com', N'0123456798', N'Hải Dương', N'Tiền mặt', 10, N'34E-45688', 800000, '2024-10-10', '2024-10-14', 3200000, NULL);

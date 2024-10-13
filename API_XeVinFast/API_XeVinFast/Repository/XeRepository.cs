@@ -40,28 +40,29 @@ namespace API_XeVinFast.Repository
             }
         }
 
-        public async Task<bool> CreateXeAsync(XeDto xeDto)
+        public async Task<bool> CreateXeAsync(XeDtoThemSua xeDto)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                var query = "ThemMoiXe"; 
+                var query = "ThemMoiXe";
                 var parameters = new
                 {
                     BienSo = xeDto.BienSo,
                     MaChiTietXe = xeDto.MaChiTietXe,
                     TrangThaiXe = xeDto.TrangThaiXe,
                     MaBaoHiem = xeDto.MaBaoHiem,
-                    DuongDanAnh = xeDto.DuongDanAnh,
-                    GiaThueXe = xeDto.GiaThueXe
+                    DuongDanAnh = xeDto.DuongDanAnh
                 };
+
+                // Thực thi thủ tục lưu trữ
                 var result = await connection.ExecuteAsync(query, parameters, commandType: System.Data.CommandType.StoredProcedure);
-                return result > 0;
+                return result > 0; // Trả về true nếu thành công
             }
         }
 
 
 
-        public async Task<bool> UpdateXeAsync(XeDto xeDto)
+        public async Task<bool> UpdateXeAsync(XeDtoThemSua xeDto)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -73,8 +74,7 @@ namespace API_XeVinFast.Repository
                     MaChiTietXe = xeDto.MaChiTietXe,
                     TrangThaiXe = xeDto.TrangThaiXe,
                     MaBaoHiem = xeDto.MaBaoHiem,
-                    DuongDanAnh = xeDto.DuongDanAnh,
-                    GiaThueXe = xeDto.GiaThueXe
+                    DuongDanAnh = xeDto.DuongDanAnh
                 };
                 var result = await connection.ExecuteAsync(query, parameters, commandType: System.Data.CommandType.StoredProcedure);
                 return result > 0;
@@ -92,18 +92,17 @@ namespace API_XeVinFast.Repository
             }
         }
 
-        public async Task<IEnumerable<XeDto>> TimKiemXeAsync(string bienSo, int? maChiTietXe, string trangThaiXe, int? maBaoHiem, string duongDanAnh, int? giaThueXe)
+        public async Task<IEnumerable<XeDto>> TimKiemXeAsync(string bienSo, int? maChiTietXe, string trangThaiXe, int? maBaoHiem, int? giaThueXe)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                var query = "TimKiemXe"; 
+                var query = "TimKiemXeTheoTieuChi"; 
                 var parameters = new
                 {
                     BienSo = bienSo,
                     MaChiTietXe = maChiTietXe,
                     TrangThaiXe = trangThaiXe,
                     MaBaoHiem = maBaoHiem,
-                    DuongDanAnh = duongDanAnh,
                     GiaThueXe = giaThueXe
                 };
 
